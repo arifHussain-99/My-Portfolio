@@ -131,19 +131,19 @@ flexibility(document.documentElement);
 				<div class="elementor-widget-container">
 							<ul class="elementor-icon-list-items elementor-inline-items">
 							<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="https://elementor.jimfahad.com/elementor149/">
+											<a href="/index.html">
 
 											<span class="elementor-icon-list-text">Home</span>
 											</a>
 									</li>
 								<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="https://elementor.jimfahad.com/elementor149/portfolio/">
+											<a href="/portfolio/index.html">
 
 											<span class="elementor-icon-list-text">Portfolio</span>
 											</a>
 									</li>
 								<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="https://elementor.jimfahad.com/elementor149/contact/">
+											<a href="/contact/index.html">
 
 											<span class="elementor-icon-list-text">Contact</span>
 											</a>
@@ -308,34 +308,128 @@ flexibility(document.documentElement);
 					<style id="wpforms-css-vars-elementor-widget-d8a5b91">.elementor-widget-wpforms.elementor-element-d8a5b91 {
 				--wpforms-field-text-color: #000000B3;
 
-			}</style>
-<div class="wpforms-container wpforms-container-full wpforms-render-modern" id="wpforms-232"><form id="wpforms-form-232" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="232" method="post" enctype="multipart/form-data" action="/contact/?simply_static_page=21892" data-token="4de9a7e3abc13cf93f3cb8c77988e425" data-token-time="1749453784">
-<noscript class="wpforms-error-noscript">Please enable JavaScript in your browser to complete this form.</noscript>
-<div class="wpforms-hidden" id="wpforms-error-noscript">Please enable JavaScript in your browser to complete this form.</div>
-<div class="wpforms-field-container">		<div id="wpforms-232-field_4-container" class="wpforms-field wpforms-field-text" data-field-type="text" data-field-id="4">
-			<label class="wpforms-field-label" for="wpforms-232-field_4">Comment Email Name</label>
-			<input type="text" id="wpforms-232-field_4" class="wpforms-field-medium" name="wpforms[fields][4]">
-		</div>
-		<div id="wpforms-232-field_1-container" class="wpforms-field wpforms-field-name wpforms-one-half wpforms-first" data-field-id="1">
-<label class="wpforms-field-label wpforms-label-hide" for="wpforms-232-field_1" aria-hidden="false">Name <span class="wpforms-required-label" aria-hidden="true">*</span></label><input type="text" id="wpforms-232-field_1" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][1]" placeholder="Enter Your Name " aria-errormessage="wpforms-232-field_1-error" required>
+			}
+		
+  #contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+	justify-content: center;
+	margin-top: 50px !important;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 10px;
+
+  }
+
+  input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .form-row input {
+    flex: 1;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+	width: 40% !important;
+	margin: 0 auto !important;
+	padding: 12px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
+<div class="wpforms-container wpforms-container-full wpforms-render-modern" id="wpforms-232">
+
+
+<form id="contact-form">
+  <!-- Honeypot -->
+  <input type="text" name="_honey" style="display:none">
+  <input type="hidden" name="_captcha" value="false">
+
+  <div class="form-row">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+  </div>
+
+  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+  <button type="submit">Send </button>
+</form>
+
+<div id="thank-you-msg" style="display:none; color: rgb(46, 243, 46); margin-top: 30px; font-weight: bold;">
+  ✅ Thanks for contacting me! I will get back to you soon.
 </div>
-<div id="wpforms-232-field_2-container" class="wpforms-field wpforms-field-email wpforms-one-half" data-field-id="2">
-<label class="wpforms-field-label wpforms-label-hide" for="wpforms-232-field_2" aria-hidden="false">Email <span class="wpforms-required-label" aria-hidden="true">*</span></label><input type="email" id="wpforms-232-field_2" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][2]" placeholder="Enter Your Email" spellcheck="false" aria-errormessage="wpforms-232-field_2-error" required>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch("https://formsubmit.co/arifsiyal45@gmail.com", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        form.style.display = "none"; // Hide form
+        document.getElementById("thank-you-msg").style.display = "block"; // Show thank you
+      } else {
+        alert("There was an error. Please try again.");
+      }
+    })
+    .catch(() => {
+      alert("Failed to send message. Try again later.");
+    });
+  });
+</script>
+
+<!-- Success Message -->
+<div id="thank-you-msg" style="display:none; color: green; margin-top: 15px;">
+  ✅ Thanks for contacting me! I will get back to you soon.
 </div>
-<div id="wpforms-232-field_3-container" class="wpforms-field wpforms-field-textarea" data-field-id="3">
-<label class="wpforms-field-label wpforms-label-hide" for="wpforms-232-field_3" aria-hidden="false">Comment <span class="wpforms-required-label" aria-hidden="true">*</span></label><textarea id="wpforms-232-field_3" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][3]" placeholder="Message" aria-errormessage="wpforms-232-field_3-error" required></textarea>
-</div>
-<script>( function() {
-					const style = document.createElement( 'style' );
-					style.appendChild( document.createTextNode( '#wpforms-232-field_4-container { position: absolute !important; overflow: hidden !important; display: inline !important; height: 1px !important; width: 1px !important; z-index: -1000 !important; padding: 0 !important; } #wpforms-232-field_4-container input { visibility: hidden; } #wpforms-conversational-form-page #wpforms-232-field_4-container label { counter-increment: none; }' ) );
-					document.head.appendChild( style );
-					document.currentScript?.remove();
-				} )();</script>
-</div>
-<!-- .wpforms-field-container --><div class="wpforms-submit-container">
-<input type="hidden" name="wpforms[id]" value="232"><input type="hidden" name="page_title" value="Contact"><input type="hidden" name="page_url" value=".//contact/?simply_static_page=21892"><input type="hidden" name="url_referer" value=""><input type="hidden" name="page_id" value="16"><input type="hidden" name="wpforms[post_id]" value="16"><button type="submit" name="wpforms[submit]" id="wpforms-submit-232" class="wpforms-submit" data-alt-text="Sending..." data-submit-text="Send to me" aria-live="assertive" value="wpforms-submit">Send to me</button><img decoding="async" src="./../wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg" class="wpforms-submit-spinner" style="display: none;" width="26" height="26" alt="Loading">
-</div>
-</form></div>  <!-- .wpforms-container -->				</div>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent default form submit
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch("https://formsubmit.co/arifsiyal45@gmail.com", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        form.reset(); // Clear the form
+        document.getElementById("thank-you-msg").style.display = "block"; // Show thank you
+      } else {
+        alert("There was an error. Please try again.");
+      }
+    })
+    .catch(error => {
+      alert("Failed to send message. Try again later.");
+    });
+  });
+</script>
+
+
+</div>  <!-- .wpforms-container -->				</div>
 				</div>
 				</div>
 					</div>
